@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel ="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ 
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+   
+    <!-- MTERIAL ICONS CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- GOOGLE FONTS (POPPINS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .material-symbols-sharp {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 48
+        }
+        </style>
+
+</head>
+<body>
+<nav>
+    <div class="container">
+        <img style="max-width:300px" src="../../static/images/logo.jpg" class="logo">
+        <div class="search-bar">
+            <span class="material-symbols-sharp">search</span>
+            <input type="search" placeholder="Search">
+        </div>
+        <div class="profile-area">
+            <div class="theme-btn">
+                <span class="material-icons-sharp active">light_mode</span>
+                <span class="material-icons-sharp">dark_mode</span>
+            </div>
+            <div class="profile">
+                <div class="profile-photo">
+                    <img style="max-width:100px" src="../../static/images/people/1.png" alt="">
+                </div>
+                <h5>{{ session["name"] }}</h5>
+                <span class="material-symbols-sharp">expand_more</span>
+            </div>
+            <button id="menu-btn">
+                <span class="material-symbols-sharp">menu</span>
+            </button>
+        </div>
+    </div>
+</nav>
+<!-- End Of Navbar-->
+<main>
+<aside>
+    <button id="close-btn">
+         <span class="material-symbols-sharp">close</span>
+    </button>
+       <div class="sidebar">
+        <a href="/admin" class="active">
+            <span class="material-icons-sharp">dashboard</span>
+            <h4>Dashboard</h4>
+        </a>
+        <a href="/admin/messages">
+            <span class="material-icons-sharp">message</span>
+            <h4>messages</h4>
+        </a>
+        <a href="/admin/products">
+            <span class="material-icons-sharp">inventory</span>
+            <h4>products</h4>
+        </a>
+        <a href="/clients">
+            <span class="material-icons-sharp">group</span>
+            <h4>clients</h4>
+        </a>
+        <a href="/admin/demmands">
+            <span class="material-icons-sharp">currency_exchange</span>
+            <h4>Demandes</h4>
+        </a>
+      
+        <a href="#">
+            <span class="material-icons-sharp">settings</span>
+            <h4>Settings</h4>
+        </a>
+        <a href="/logout">
+            <span class="material-icons-sharp">logout</span>
+            <h4>Logout</h4>
+        </a>
+
+    </div>
+        <!--END OF SIDEBAR-->
+        <div class="updates">
+            <span class="material-icons-sharp"> update</span>
+            <h4>Updates Avaliable</h4>
+            <p>Security Updates</p>
+            <p>General Updates</p>
+            <a href="#">Update Now</a>
+        </div>
+</aside>
+     
+
+<section>
+
+<div class="included-product">
+
+{% if lien%}
+
+    {% include "admin/"+lien+".html" %}
+
+
+{% else %}
+</div>
+    
+<section class="middle">
+    <div class="header">
+       <h1>Overview</h1>
+       <input type="date">
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="top">
+                <div class="left">
+                    <img src="" >
+                    <h2>THE SALES</h2>
+                </div>
+                <img src="" class="right">
+            </div>
+            <div class="middle">
+                <h1>{{ fq[0][0] }} MAD</h1>
+                <div class="chip">
+                    <img src="" class="chip" >
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="left">
+                    <small></small>
+                    <h5></h5>
+                </div>
+                <div class="right">
+                    <div class="expiry">
+                        <small></small>
+                        <h5></h5>
+                    </div>
+                    <div class="cvv">
+                        <small></small>
+                        <h5></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- END OF CARD-1  -->
+
+
+
+    <div class="card">
+        <div class="top">
+            <div class="left">
+                <div class="chip">
+                    <img src="" >
+                </div>
+                <h2>STOCK</h2>
+            </div>
+            <img src="" class="right">
+        </div>
+        <div class="middle">
+            <h1>{{  sq[0][0] }} MAD</h1>
+            <div class="chip">
+                <img src="" class="chip" >
+            </div>
+        </div>
+        <div class="bottom">
+            <div class="left">
+                <small></small>
+                <h5></h5>
+            </div>
+            <div class="right">
+                <div class="expiry">
+                    <small></small>
+                    <h5></h5>
+                </div>
+                <div class="cvv">
+                    <small></small>
+                    <h5></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+<!-- END OF CARD-2  -->
+
+
+
+<div class="card">
+    <div class="top">
+        <div class="left">
+            <img src="" >
+            <h2>USERS</h2>
+        </div>
+        <img src="" class="right">
+    </div>
+    <div class="middle">
+        <h1>{{ tq[0][0] }} users</h1>
+      
+    </div>
+    <div class="bottom">
+        <div class="left">
+            <small></small>
+            <h5></h5>
+        </div>
+        <div class="right">
+            <div class="expiry">
+                <small></small>
+                <h5> </h5>
+            </div>
+            <div class="cvv">
+                <small></small>
+                <h5></h5>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END OF CARD-3  -->
+</div>
+<!--END OF CARDS-->
+<div class="text-center mt-4 p-2">
+        <h1>Quantity bought by Labels</h1>
+    </div>
+<div class="monthly-report my-5">
+    
+
+<div class="my-4" id="plot"></div>
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        // Get the JSON-encoded data object for the plot
+        var plotData = {{ plot | tojson | safe }};
+      
+        var data = [
+        {
+          x: plotData["x"],
+          y:  plotData["y"],
+          type: "bar",
+          mode: 'markers',
+          marker: {
+            size: 2,
+            color: 'blue'
+          }
+        }
+      ];
+
+
+
+
+      var layout = {
+        title: 'Quantity bought by Labels',
+        xaxis: {
+          title: 'labels'
+        },
+        yaxis: {
+          title: 'Quantity'
+        },
+        width: 900, // set the width to 600 pixels
+        height: 400, // set the height to 400 pixels
+        responsive: true
+      };
+            
+
+
+            Plotly.relayout("plot");  // Update the chart layout
+
+        // Create a new Plotly plot with the data object and display it in the "plot" div
+        Plotly.newPlot("plot", data , layout);
+      </script>
+
+
+</div>
+
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="text-muted fs-2 p-2 my-2">User Reaction For Each Product</h1>
+    </div>
+
+    <div id="typeProduct" class="row justify-content-center">
+
+     <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/boot.png" alt=""></div>
+        <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/dress.png" alt=""></div>
+          <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/jacket.png" alt=""></div>
+          <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/jeans.png" alt=""></div>
+          <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/sandal.png" alt=""></div>
+          <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/sneakers.png" alt=""></div>
+          <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/sweater.png" alt=""></div>
+          <div class="col-1 mx-4"><img class="btn btn-light" src="../../static/images/icons/products/tshirt.png" alt=""></div>
+     
+    </div>
+
+
+
+    <div class="my-4" id="plot1"></div>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <script>
+            // Get the JSON-encoded data object for the plot
+            var resultProduct = {{ resultProduct | tojson | safe }};
+            console.log("data = "+resultProduct)
+            let typeProduct = document.querySelector("#typeProduct")
+            labels = ["ankle bots" , "Dress", "Coat", "trouser", "Sandal" , "sneakers" , "Pullover" , "shirt"]
+
+
+              
+
+    for(let j = 0  ; j < typeProduct.children.length ;j++){
+
+        typeProduct.children[j].onclick = ()=>{
+            X=[]
+            Y=[]
+            console.log(labels[j])
+
+            for( h=0 ;h<resultProduct[labels[j]].length;h++){
+                X.push(resultProduct[labels[j]][h][0])
+                Y.push(resultProduct[labels[j]][h][1])
+            }
+
+    dataJ = {}
+    for(let v = 0 ; v<X.length ; v++){
+
+
+          dataJ[X[v]] = Y[v]
+
+
+    }
+
+    
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+      
+
+      function drawChart() {
+
+        
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ...Object.entries(dataJ).map(([key, value]) => [key, Number(value)])
+        ]);
+          
+          
+        
+
+        var options = {
+          title: 'Reaction ',
+          title: "Clients's Reaction for '"+labels[j]+"'",
+          pieSliceTextStyle: {
+            fontSize: 10 // set the font size of the text
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('plot1'));
+
+        chart.draw(data, options);
+      }
+
+    
+
+
+
+
+        }
+
+
+    }        
+
+   
+
+
+   
+           
+          </script>
+
+
+
+
+    
+
+
+
+
+
+
+
+
+</div>
+
+
+{% endif%}
+   
+ 
+{% if lien == "demmandes" %}
+
+
+<div class="text-center">
+    <h1 class="fs-2 f-bold ">Quantity of Demandes by Dates</h1>
+</div>
+    
+<canvas id="chart"></canvas>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+<script >
+    var dataJ = {{ DD|tojson|safe }};
+    console.log(dataJ)
+  
+
+    const ch = document.querySelector("#chart").getContext('2d');
+    
+
+var c = new Chart(ch , {
+
+    type:'line',
+    data : {
+        labels : ['Jan'],
+
+        datasets:[{
+            label : 'DEMMANDES',
+            data : [10],
+            borderColor : 'red',
+            borderWidth : 2
+        },
+        {
+            label : 'DEMMANDES',
+            data : [10],
+            borderColor : 'blue',
+            borderWidth : 2
+        }
+       
+    ],
+       
+    },
+    options: {
+        responsive: true
+      }
+
+})
+
+for(var date in dataJ){
+
+    c.data.labels.push(date);
+    c.data.datasets[0].data.push(dataJ[date]);
+    
+
+}
+
+
+
+
+
+var dataJ2 = {{ DDQ|tojson|safe }};
+console.log(dataJ2)
+
+for(var date in dataJ2){
+
+    c.data.datasets[1].data.push(dataJ2[date]);
+}
+
+
+
+
+c.update();
+
+
+
+
+</script>
+
+<div class="text-center">
+    <h1 class="text-center fs-3 fw-bold ">Users Reactions</h1>
+</div>
+
+
+<div class="my-4" id="plot3"></div>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script>
+        // Get the JSON-encoded data object for the plot
+        var resultSatisfaction = {{ resultSatisfaction | tojson | safe }};
+        console.log("data = "+resultSatisfaction)   
+        
+
+          
+
+
+        
+
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+  
+
+  function drawChart() {
+
+    
+    var data = google.visualization.arrayToDataTable([
+      ['Task', 'Hours per Day'],
+      ...Object.entries(resultSatisfaction).map(([key, value]) => [key, Number(value)])
+    ]);
+      
+      
+    
+
+    var options = {
+      title: 'Reaction ',
+      title: "Clients's Reactions",
+      pieSliceTextStyle: {
+        fontSize: 10 // set the font size of the text
+      },
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('plot3'));
+
+    chart.draw(data, options);
+  }
+
+
+
+
+
+
+         
+
+
+
+
+
+       
+      </script>
+
+ 
+    
+ {% endif%}
+
+</section>
+
+</section>
+
+
+
+
+
+       
+        <section class="right">
+           <div class="investments">
+                <div class="header">
+                    <h2>Investements</h2>
+                    <a href="#"><span class="material-icons-sharp">chevron_right</span></a>
+                </div>
+                <div class="investement">
+                    <img src="../../static/images/logos/Lacoste.png">
+                    <h4>Lacost</h4>
+                    <div class="date-time">
+                        <p>7 Nov, 2021</p>
+                        <small class="text-muted">9:14pm</small>
+                    </div>
+                    <div class="bonds">
+                        <p>1402</p>
+                        <small class="text-muted">Bonds</small>
+                    </div>
+                    <div class="amount">
+                        <h4>20.033 MAD</h4>
+                        <small class="danger">-4.27</small>
+                    </div>
+                </div>
+                <!--END OF INVESTEMENTS-->
+                <div class="investement">
+                    <img src="../../static/images/logos/Diadora.png">
+                    <h4>Diadora</h4>
+                    <div class="date-time">
+                        <p>7 Nov, 2021</p>
+                        <small class="text-muted">9:14pm</small>
+                    </div>
+                    <div class="bonds">
+                        <p>1402</p>
+                        <small class="text-muted">Bonds</small>
+                    </div>
+                    <div class="amount">
+                        <h4>20.033 MAD</h4>
+                        <small class="success">+7.98</small>
+                    </div>
+                </div>
+                <!--END OF INVESTEMENTS-->
+                <div class="investement">
+                    <img src="../../static/images/logos/Fila.png">
+                    <h4>Fila</h4>
+                    <div class="date-time">
+                        <p>7 Nov, 2021</p>
+                        <small class="text-muted">9:14pm</small>
+                    </div>
+                    <div class="bonds">
+                        <p>1402</p>
+                        <small class="text-muted">Bonds</small>
+                    </div>
+                    <div class="amount">
+                        <h4>20.033 MAD</h4>
+                        <small class="danger">-4.27</small>
+                    </div>
+                </div>
+                <!--END OF INVESTEMENTS-->
+                <div class="investement">
+                    <img src="../../static/images/logos/Adidas.png">
+                    <h4>Adidas</h4>
+                    <div class="date-time">
+                        <p>7 Nov, 2021</p>
+                        <small class="text-muted">9:14pm</small>
+                    </div>
+                    <div class="bonds">
+                        <p>1402</p>
+                        <small class="text-muted">Bonds</small>
+                    </div>
+                    <div class="amount">
+                        <h4>20.033 MAD</h4>
+                        <small class="success">+4.27</small>
+                    </div>
+               
+    </main>
+
+  <div style="position:absolute ; left:270px ; top : 650px ">
+
+
+
+
+
+
+{% if lien == "products" %}
+ 
+<div class="text-center">
+    <h1>Product's quantity</h1>
+</div>
+
+<div  id="piechart" style=" border-radius : 50%; width: 790px; height: 300px;"></div>
+      
+    
+     
+<script type="text/javascript">
+
+
+
+          
+    var dataJ = {{ DP|tojson|safe }};
+    console.log(dataJ);
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+      
+
+      function drawChart() {
+
+        
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ...Object.entries(dataJ).map(([key, value]) => [key, Number(value)])
+        ]);
+          
+          
+        
+
+        var options = {
+          title: 'locations',
+          title: "Product quantity ",
+          pieSliceTextStyle: {
+            fontSize: 10 // set the font size of the text
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+    
+
+  </script>
+  
+{% endif%}
+
+
+
+
+{% if lien == "clients" %}
+ 
+ 
+<div class="text-center"> 
+    <h1>Client's Location </h1>
+</div>
+<div  id="piechart" style=" border-radius : 50%; width: 790px; height: 300px;"></div>
+      
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+     
+<script type="text/javascript">
+
+
+
+          
+    var dataJ = {{ DC|tojson|safe }};
+    console.log(dataJ);
+
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+      
+
+      function drawChart() {
+
+        
+        var data = google.visualization.arrayToDataTable([
+          ['Task', 'Hours per Day'],
+          ...Object.entries(dataJ).map(([key, value]) => [key, Number(value)])
+        ]);
+          
+          
+        
+
+        var options = {
+          title: 'Locations',
+          title: "Client's location",
+          pieSliceTextStyle: {
+            fontSize: 10 // set the font size of the text
+          },
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+    </script>
+{% endif%}
+
+
+</div>  
+    
+<!--======================================END OF ASIDE ========================-->
+<!-- <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+ -->
+
+
+<script src="../../static/js/dashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<!-- <script src="../../static/js/script.js"></script> -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  
+
+  
+
+
+</body>
+
+</html>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+   <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+   <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+  
+   
+
+    <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@100;200;300;400;500;600;700;800;900&display=swap");
+* {
+  margin: 0;
+  padding   
+  : 0;
+  box-sizing: border-box;
+  font-family: "Spartan", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Global Styles */
+
+h1 {
+  font-size: 50px;
+  line-height: 64px;
+  color: #222;
+}
+
+h2 {
+  font-size: 46px;
+  line-height: 54px;
+  color: #222;
+  
+}
+
+h4 {
+  font-size: 20px;
+  color: #222;
+}
+
+h6 {
+  font-weight: 700;
+  font-size: 12px;
+}
+
+p {
+  font-size: 16px;
+  color: #465b52;
+  margin: 15px 0 20px 0;
+}
+
+.section-p1 {
+  padding: 40px 80px;
+}
+
+.section-m1 {
+  margin: 40px 0;
+}
+
+body {
+  width: 100%;
+}
+
+.logo{
+
+
+  max-width: 100px;
+
+
+}
+
+
+
+
+/*header*/
+#header{
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 80px;
+  background: #E3E6E3;
+  box-shadow: 0 5px  15px rgba(0, 0, 0, 0.06);
+  z-index: 999;
+  position: sticky;
+  top:0;
+  left: 0;
+  
+}
+
+#navbar{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+}
+
+
+#navbar li{
+
+list-style: none;
+padding:  0 20px;
+position: relative;
+
+}
+#navbar li a{
+
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1a1a1a;
+  transition: 0.3s ease;
+
+}
+#navbar li a:hover,
+#navbar li a.active {
+
+  color: #088178;
+}
+
+
+#navbar li a.active::after,
+#navbar li a:hover::after{
+
+  content :"";
+  width : 30px;
+  height: 2px;
+  background: #088178;
+  position: absolute;
+  bottom: -4px;
+  left:20px;
+
+}
+
+#hero{
+  background-image: url("") ;
+}
+
+/*home*/
+#hero{
+  
+  background-image: url("../static/images/background/b4.jpg") ;
+  height: 90vh;
+  width: 100%;
+  background-size: cover;
+  background-position: top 25% right 0;
+  padding:  0 80px ;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+}
+
+#hero h4{
+  padding-bottom: 15px;
+}
+
+#hero h4{
+  color: #088178 ;
+}
+#hero button{
+
+  background-image: url("../static/images/icons/button.png");
+  background-color: transparent;
+  color: 088178;
+  border: 0;
+  padding: 14px 80px 14px 65px ;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  font-weight: 700px;
+  font-size :15px;
+
+}
+
+/* Shop Page */
+
+#page-header{
+  
+  background-image: url("../static/images/background/b2.jpg") ;
+  width:  100%;
+  height : 40vh;
+  background-size: cover ;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  text-decoration: column;
+  padding : 14px;
+}
+
+#page-header h2 ,
+#page-header p{
+
+  color: #fff;
+
+}
+
+#product1{
+
+  text-align: center ;
+
+}
+
+#product1 .pro{
+
+  width : 23%;
+  min-width: 250px;
+  padding : 10px 12px ;
+  border : 1px solid #cce7d0;  
+  border-radius: 25px;
+  cursor:  pointer;
+  box-shadow: 20px 20px 30px  rgba(0,0,0,0.02);
+  margin : 15px 0;
+  transition: 0.2s ease;
+  position: relative;
+}
+
+
+#product1 .pro:hover{
+ 
+  box-shadow: 20px 20px 30px rgba(0,0,0,0.06);
+  
+}
+#product1 .pro  .des{
+
+  text-align: start;
+  padding: 10px 0;
+}
+
+#product1 .pro des span{
+
+   color : #606063;
+   font-size:  12px;
+
+}
+
+#product1 .pro img{
+
+  width : 100%;
+  border-radius:20px;
+
+}
+
+#product1 .pro .des h5{
+
+  padding-top: 7px;
+  color : #1a1a1a;
+  font-size: 14px;
+
+}
+
+
+#product1 .pro .des i{
+
+  font-size: 12px;
+  color: rgba(243 , 181 , 25);
+
+}
+
+#product1 .pro .des h4{
+   
+  padding-top: 7px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #088178;
+
+}
+
+#product1{
+
+   text-align: center;  
+
+}
+
+#product1 .pro-container{
+
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  flex-wrap: wrap;
+
+
+}
+
+#product1 .pro .cart{
+  
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50px;
+  background-color: #e8f6ea;
+  font-weight: 500;
+  color: 500;
+  border: 1px solid #cce7d0;
+  position: absolute;
+  bottom : 20px;
+  right : 10px;
+
+}
+
+#pagination{
+
+  text-align: center;
+
+}
+
+
+#pagination a{
+
+  text-decoration: none;
+  background-color: #088178;
+  padding: 15px 20px ;
+  border-radius : 4px;
+  font-weight: 600;
+
+}
+
+#pagination a i {
+
+  font-size: 16px;
+  font-weight: 600;
+
+}
+
+#cart table td:nth-child(1){
+    width: 100px;
+    text-align: center;
+}
+#cart table td:nth-child(2){
+    width: 150px;
+    text-align: center;
+}
+#cart table td:nth-child(3){
+    width: 250px;
+    text-align: center;
+}
+#cart table td:nth-child(4),
+#cart table td:nth-child(5),
+#cart table td:nth-child(6){
+    width: 150px;
+    text-align: center;
+}
+
+
+#cart table td:nth-child(5) input{
+
+    width:70px;
+    padding: 10px 5px 10px 15px;
+
+}
+
+
+#cart table thead{
+
+    border: 1px solid #e2e9e1;
+    border-left: none ;
+    border-right : none;
+
+}
+
+#cart table thead td{
+
+    font-weight : 700 ;
+    text-transform: uppercase;
+    font-size: 13px;
+    padding: 18px 0;
+
+}
+
+#cart table tbody tr td{
+    padding-top: 15px ;
+}
+
+
+#cart table tbody td{
+
+    font-size: 13px;
+
+}
+
+
+/* cart page */
+#cart table{
+
+   width: 100%;
+   border-collapse: collapse; 
+   table-layout: fixed;
+   white-space: nowrap;
+}
+
+
+#cart table img{
+
+    max-width: 70px;
+    max-height:70px;
+
+}
+
+#cart table img{
+
+    width:70px;
+
+}
+
+#cart-add{
+
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: space-between;
+
+}
+#coupon{
+
+    width: 50%;
+    height : 2px;
+    position: relative;
+
+  
+
+}
+
+
+#coupon h3 , 
+#subtotal h3{
+    padding-bottom: 15px;
+}
+
+#coupon input{
+
+    padding: 10px 20px;
+    outline: none;
+    width: 60%;
+    margin-right: 10px;
+    border : 1px solid #e2e9e1;
+
+
+}
+
+#coupon button{
+
+    background-color: #088178 ;
+    color:#fff;
+    width: 100px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+    
+    
+}
+.turnOn{
+  color: orange !important;
+}
+
+.Normal2{
+
+    background-color: #088178 ;
+    color:#fff;
+    width: 200px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 20px;
+}
+
+
+#subtotal table{
+    border-collapse : collapse;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+
+#subtotal table td{
+
+    width:50px;
+    border: 1px solid #e2e9e1;
+    padding: 10px;
+    font-size:13px;
+
+
+}
+
+#subtotal{
+
+    width: 50%;
+    margin-bottom: 30px;
+    border: 1px solid #e2e9e1 ;
+    padding :30px;
+
+}
+
+button,
+i{
+
+    cursor: pointer;
+
+}
+
+
+/*search box*/
+
+
+.active{
+    left: 100%;
+}
+.search-box{
+    position: absolute;
+    top: 110%;
+    left: 100%;
+    width: 50%;
+    right: 2rem;
+
+
+}
+.search-box input{
+    padding: 1.5rem 2rem;
+    width: 100%;
+    border-radius: 15px;
+    border: 0;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.optionCity{
+
+
+    width: 120px;
+    height: 40px;
+    border-radius: 5px ;
+
+
+}
+
+
+/*Form*/
+
+
+.hidden{
+
+    display: none;
+
+
+}
+
+
+</style>
+
+</head>
+<body>
+
+
+  {% if session["err_cart"]%}
+  <div  class="container text-center p-5 my-5 d-flex align-items-center justify-content-center">
+
+      <div  class="w-50 alert alert-success alert-dismissible fade show" role="alert">
+        {{session["err_cart"]}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+  </div>
+  {%endif%}
+
+  
+
+  <div class="container-fluid">
+    {% include "header.html" %}  
+ </div>
+
+  <section id="page-header" class="about-header">
+
+  </section>
+
+
+    <section id="cart" class="section-p1">
+        <table width="100%">
+           <thead>
+            <tr>
+
+                <td>Remove</td>
+                <td>Image</td>
+                <td>Product</td>
+                <td>Date</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+
+            </tr>
+           </thead>
+
+
+           <tbody>
+          
+
+      
+     {% for pb in buyProduct %}
+            <tr>
+                <td><a href="{{url_for('deleteProduct', id = pb[0] )}}"><i class="far fa-times-circle"></i></a></td>
+                <td><img src="../static/images//clothes/all/{{pb[9]}}" alt=""></td>
+                <td>{{ pb[6] }}</td>
+                <td>{{ pb[3] }}</td>
+                <td> {{ pb[4]  }} </td>
+                <td>{{ pb[8]*pb[4]}}</td>
+            </tr>
+      {% endfor %}      
+ 
+            {% if buyProduct|length<1 %}
+            <h1 class="text-center text-danger fs-2"> No product  selected </h1>
+            {% endif%}
+           </tbody>
+
+
+        </table>
+    </section>
+    <div class="container text-center">
+      <div class="h1"><a  class="btn btn-primary" href="/suivre_demande"> Suivre mes demendes</a> </div>
+    </div>
+
+    <section id="cart-add" class="section-p1">
+     
+
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>DH33</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong id="total" class="{{total[0][0]}}"> {% if buyProduct|length==0 %} 0{% else %}{{total[0][0]}}{% endif %}</strong><strong>MAD</strong></td>
+                </tr>
+            </table>
+            <button id="Proced" class="Normal2">Proced to checkout</button>
+
+
+            <div class="container  ">
+              <h1 class="text-center fs-5">How do you satisfy our services ?</h1>
+              <form action="/satesfaction_clients" method="post">
+              <div class="fs-1 p-1 " style="display:flex ;  align-items : center;  justify-content: center" class="star" id="strs">
+            
+                <i class="fas fa-star"></i>
+                <i style="margin-top: -20px" class="fas fa-star"></i>
+                <i style="margin-top: -40px" class="fas fa-star"></i>
+                <i  style="margin-top: -20px"  class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <div class="text-center">
+                <input  type="text" style="display: none;" value="1" name="nbr_stars" id="nbr_stars" >
+            
+                <input  type="submit" class="btn text-center btn-warning fs-5 " value="send">
+                 
+
+            
+              </div>
+              </form>
+             
+
+
+            
+            </div>
+
+          
+        </div>
+
+
+
+<!-- show form -->
+   
+
+        <div id="ShowForm" class="mt-5">
+
+         
+            <div class="container  ">
+                <div class="card">
+                  <form action="/add/demande" method="post" class="form">
+                    <!-- Card header -->
+                    <div class="card-header">
+                      <h4 class="fw-bold">Paiment Informations</h4>
+                    </div>
+              
+                    <!-- Card body -->
+                    <div class="card-body">
+                      
+                      <div class="mb-3">
+                        <label for="exampleInput2" class="form-label"
+                               >Email address</label
+ >
+                        <input type="email" name="email" class="form-control" id="exampleInput2" value={{email}} />
+                      </div>
+                      <div class="mb-3">
+                        <label for="exampleInput3" class="form-label">Phone number</label>
+                        <input type="text" name="tel" class="form-control" id="exampleInput3" value={{tel}}  />
+                      </div>
+              
+              
+                      <div class="mb-3">
+                        <label for="exampleInput6" class="form-label"
+                               >Street address</label
+                          >
+                        <input type="text" name="street" class="form-control" id="exampleInput6" />
+                      </div>
+              
+                      <div class="row">
+                       
+                        <div class="col-12">
+                          <label for="exampleInput10" class="form-label">City</label>
+                          <select class="form-select"
+                             
+                                  id="exampleInput7"
+                          
+                                  name="city"
+
+                                  >
+                            <option selected value="Essaouira" >Essaouira</option>
+                            <option value="Agadir">Agadir</option>
+                          </select>
+                        </div>
+
+
+                       
+                        <div class="col-12">
+                           <div class="form-label">
+                          Paiment tools
+                        </div>
+                        <select class="form-select" name="paiment" id="paient">
+                          <option class="form-control"  value="Cach">  Cach</option>
+                          
+                          <option class="form-control" value="Paypal">Paypal</option>
+                          <option class="form-control" value="Visa">Visa</option>
+
+                        </select>
+                        </div>
+                        <input type="text" name="somme" style="display: none;" value={{total[0][0]}}>
+                       <div class="text-center">
+                        <img class="img-fluid" src="../static/images/icons/pay.png" class="my-2" style="border-radius:20px;width:200px;  margin-top:10px" alt=""> 
+
+                       </div>
+                     
+    
+    
+
+                       
+
+
+
+
+
+                      </div>
+              
+                   </div>
+              
+                    <!-- Card footer -->
+                    <div class="card-footer p-0 text-center" id="d1">
+                      <button class="btn btn-danger">Cancel</button>
+                     
+
+                      <button type="submit" id="submit" style="font-size:18" class="btn btn-primary">Submit</button>
+
+             
+                        <button  id="paypal-button"  type="submit" class="btn" style="border-radius:20px;font-size:18" > <img type="submit" class="img-fluid" style="height: 40px; width: 100%; border: 1px solid black;" src="/static/images/icons/paypal.webp" alt=""></button>
+
+                      
+
+                    </div>
+                  </form>
+                </div>
+                <div class="card card-footer form p-0 w-100  d-flex align-items-center  text-center" id="d2">
+                
+                  <form action="/create-checkout-session"  class="form d-flex w-100 align-items-center justify-content-center" method="post">
+                    <input id="send_email" name="send_email" style="display: none ;" type="email" value="">
+                    <input id="send_phone" name="send_phone" style="display: none ;" type="text" value="">
+                    <input id="send_street" name="send_street" style="display: none ;" type="text" value="">
+                    <input id="send_city" name="send_city" style="display: none ;" type="text" value="">
+                    <div class="text-center w-100">
+                      <button class="btn btn-danger">Cancel</button>
+                     
+                      <button class="btn">
+                        <img id="Visit_Payment" type="submit" class="img-fluid" style="width: 80px; height: 50px;" src="../static/images/icons/visa.jpg" class="my-2" style="border-radius:20px;width:200px;  margin-top:10px" alt=""> 
+                       </button>
+
+                    </div>
+                 
+                    </form>
+                 </div>
+                
+                  
+
+
+
+                </div>
+              </div>
+
+            
+
+    
+       
+
+    </section>
+
+
+    <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+                      
+                     
+          
+
+    <script >
+      let prod=document.getElementById("paient")
+      let submit=document.getElementById("submit")
+      let paypal=document.getElementById("paypal-button")
+      let d1=document.getElementById("d1")
+      let d2=document.getElementById("d2")
+    
+      paypal.style.visibility="hidden"
+      d1.style.visibility="hidden"
+      d2.style.visibility="hidden"
+
+      for( let i=0 ;i<prod.children.length;i++){
+        
+    
+     
+       prod.children[i].onclick=()=>{
+        if (prod.children[i].value=="Paypal"){
+          submit.style.visibility="hidden"
+          paypal.style.visibility="visible"
+          Visit_Payment.style.visibility="hidden"
+          d1.style.display="block"
+          d2.style.visibility="hidden"
+     
+        
+
+        } 
+        if (prod.children[i].value=="Cach"){
+          submit.style.visibility="visible"
+          paypal.style.visibility="hidden"
+          Visit_Payment.style.visibility="hidden"
+          d1.style.display="block"
+          d2.style.visibility="hidden"
+     
+     
+        
+
+        } 
+        if (prod.children[i].value=="Visa"){
+          Visit_Payment.style.visibility="visible"
+     
+          submit.style.visibility="hidden"
+          paypal.style.visibility="hidden"
+          d2.style.visibility="visible"
+          d1.style.display="none"
+     
+        
+
+        } 
+
+         
+       }
+        
+
+
+
+      }
+
+  
+
+
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+
+      let Proced = document.querySelector("#Proced");
+      let ShowForm = document.getElementById("ShowForm");
+      ShowForm.style.display = "none";
+      Proced.onclick = ()=>{
+
+   
+        ShowForm.style.display = "block";
+        ShowForm.style.width="600px";
+        ShowForm.style.position="relative";
+        ShowForm.style.bottom = "50px";
+        ShowForm.style.right="20px";
+        
+
+      }
+
+      
+
+
+    </script>
+
+<!-- footer-->
+
+<div class="container-fluid my-5">
+  {% include "footer.html" %}  
+</div>
+
+<!---search model--->
+
+{% include "search.html" %}  
+
+
+<script>
+
+let stars = document.querySelector("#strs")
+let nbr_starts = document.querySelector("#nbr_stars")
+console.log(stars.children.length)
+
+         let showStars = document.querySelector("#showStars")
+         console.log("x")
+         
+
+  
+        for(let i = 0 ; i < stars.children.length ; i++){
+        console.log("hello")
+
+          stars.children[i].onclick = ()=>{
+            nbrStrs = 0
+            nbr_starts.value=i+1
+            console.log(nbr_starts.value)
+    console.log("hello")
+            for(let j = 0 ; j<=i; j++){
+
+
+              stars.children[j].classList.add("turnOn")
+              
+
+            }
+
+
+            for(let k = i+1 ; k<5; k++){
+
+
+              stars.children[k].classList.remove("turnOn")
+
+
+            }
+
+            for(let i = 0 ; i < stars.children.length ; i++){
+
+
+if( stars.children[i].classList.contains("turnOn") ){
+
+    nbrStrs+=1
+
+}
+
+}
+
+  
+
+
+
+        } 
+
+      
+      }
+ 
+
+      Visit_Payment.onclick = ()=>{
+
+
+        send_email.value = exampleInput2.value
+        send_phone.value = exampleInput3.value
+        send_street.value = exampleInput6.value
+        send_city.value = exampleInput7.value
+  
+ 
+
+      }
+
+     
+
+</script>
+
+
+
+
+  
+</body>
+
+
+</html>

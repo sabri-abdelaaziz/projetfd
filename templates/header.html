@@ -1,0 +1,172 @@
+
+
+<style>
+  a>img:hover{
+    box-shadow:inset 2px 2px 2px 4px aqua;
+    transform: rotate(0.9) !important;
+
+  }
+</style>
+
+
+
+
+
+
+<nav  style="max-height: 60px !important; position: fixed;top:0;width: 100%;  z-index: 9999; " class="navbar p-1 navbar-expand-lg bg-body-tertiary"  >
+  <!-- Navbar -->
+  
+    <div class="container-fluid">
+      <a class="navbar-brand p-1 " href="/"><img style="height:40px !important ;border-radius:20px; width:60px;"  class="img-fluid" src="../static/images/icons/logo1.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+
+      
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Fashion Store</h5>
+
+          <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex align-items-center justify-content-end">
+          
+          <ul style="float: right !important;" class="navbar-nav d-flex justify-content-end align-items-center  w-100" >
+       
+
+{%if session["livreur"]%}
+
+
+{%else%}
+
+
+            <li class="nav-link" class="m-2"><a class=" nav-link active" href="/">Home</a></li>
+        <li  class="nav-link" class="m-2"><a class=" nav-link " href="/shop">Shop</a></li>
+        
+        <li class="m-2"><a class="nav-link" href="/about">About</a></li>
+        <li class="nav-link"  class=""><a class="nav-link" href="/contact">Contact</a></li>
+      {%if session["name"]=="admin"%}
+        <li  class="nav-link" class=""><a  class="nav-link"href="/admin">admin</a></li>
+      {%endif%}
+
+      <li>
+       <a href="/cart">
+  <button type="button" class="btn text-center  mx-2  position-relative">
+          <i style="width: 10px;" class="bi   fs-1 text-primary bi-bag-check"></i>
+           <span style="top:20px ;left:12px" class="position-absolute text-dange start-100  translate-middle badge rounded-pill bg-danger">
+            {% if session["cart"]%}
+             <strong   width="10px">{{ session["cart"]}}</strong>
+             {%else%}
+             <strong   width="10px">0</strong>
+             {% endif%}
+             <span class="visually-hidden text-danger">unread messages</span>
+           </span>
+         </button>
+
+       </a>
+      
+      </li>
+
+     
+
+
+
+          
+      
+      
+  
+  
+  
+  
+      <!-- Button trigger modal -->
+      {% if session["email"] %}
+  
+   
+  <div class="d-flex flex-column m-3 p-5s">
+    <a type="button"  class="nav-link" href="/"class="">
+    <img width="40px" height="30px" style="border-radius: 50%;" src="/static/images/uploads/profils/{{session['image']}}" alt="">
+  </a>
+  <h6 class="text-center">{{session["name"]}}</h6>
+  
+  </div>
+  
+  {% else %}
+  <li   class="m-2"><a href="/registre" class="btn   btn-success text-light">Sing In</a></li>
+  
+        
+   <button type="button" class="btn  btn-primary " data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Login
+   </button>
+  {% endif%}
+  
+  {%endif%}
+  
+  {%if session["email"]%}
+  <a type="button"  class="nav-link" href="/logout"class="btn btn-danger ">
+    Logout
+  </a>
+  {%endif%}
+  
+          </ul>
+
+        </div>
+      </div>
+    </div>
+  </nav>
+  
+
+
+   
+  <!-- Modal -->
+  <div class="modal fade my-5" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Login</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+<form action="/existe/user" method="POST">
+<div class="modal-body">
+                     
+    <div class="mb-3">
+      <label for="email" class="col-form-label">Email :</label>
+      <input type="text" class="form-control" id="email" name="email">
+    </div>
+    <div class="mb-3">
+      <label for="password" class="col-form-label">Password :</label>
+      <input type="password" class="form-control" id="password" name="password">
+      <input type="text" style="display: none;" value="0"class="form-control" id="secret" name="secret">
+      <input type="text" class="form-control" id="secret" value="1" style="display: none;" name="secret">
+
+      
+      <div class="pass">
+        <a href="/reset_password">
+          Forget password
+        </a></div>    
+
+    </div>
+
+ 
+</div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+      </div>
+
+    </form>
+    </div>
+  </div>
+  
+
+
+
+
+
+  
+  

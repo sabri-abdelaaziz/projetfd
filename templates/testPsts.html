@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+    <!-- Coding by CodingLab | www.codinglabweb.com -->
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Responsive Card Slider</title>
+
+        <!-- Swiper CSS -->
+        <link rel="stylesheet" href="../static/css/swiper-bundle.min.css">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="../static/css/style.css">
+                                        
+    </head>
+    <body>
+        <div class="slide-container swiper">
+            <div class="slide-content">
+                <div class="card-wrapper swiper-wrapper">
+                  {% for message in messages %}
+                  {% if message[6]=='valider'%}
+
+                    <div class="card swiper-slide">
+                        <div class="image-content">
+                            <span class="overlay"></span>
+
+                            <div class="card-image">
+                                <img src="../static/images/uploads/profils/{{message[-1]}}" alt="" class="card-img">
+                            </div>
+                        </div>
+
+<a href="/message/adore?id={{message[0]}}" style="text-decoration: none;" class="adore" id="heart"  data-id="{{message[0]}}">
+                            <button type="submit" class="btn btn-link">
+                              <i class="bi btn btn-outline-danger bi-heart-fill"></i>
+                            </button>
+                            <small style="color:black" class="font-roboto">
+                              {{message[5]}}
+                            </small>
+                          </a>
+                          
+                          
+
+
+
+                        <div class="card-content">
+                            <h2 class="name">{{ message[3] }}</h2>
+                            <p class="description">{{ message[1] }}</p>
+
+                            <button class="button">View More</button>
+                        </div>
+                    </div>
+                    {% endif%}
+                    {% endfor %} 
+                </div>
+            </div>
+
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+
+        <script>
+
+
+            
+    function handleLinkClick(event) {
+        event.preventDefault();
+        
+        var targetId = decodeURIComponent(event.currentTarget.getAttribute('href')).split('?id=')[1];
+        var scrollPosition = window.pageYOffset;
+        
+        history.pushState(null, null, event.currentTarget.getAttribute('href'));
+        
+        var intervalId = setInterval(function() {
+          var targetElement = document.getElementById(targetId);
+          if (targetElement) {
+            targetElement.scrollIntoView({behavior: 'smooth', block: 'start'});
+            
+            window.scroll(0, scrollPosition);
+            
+            clearInterval(intervalId);
+     
+            var messageId = event.currentTarget.getAttribute('data-id');
+            fetch('/message/adore?id=' + messageId, {
+              method: 'POST'
+            });
+          }
+        }, 100);
+     }
+          
+
+        </script>
+        
+  
+    <!-- Swiper JS -->
+    <script src="../static/js/swiper-bundle.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="../static/js/script.js"></script>
+    </body>
+
+</html>

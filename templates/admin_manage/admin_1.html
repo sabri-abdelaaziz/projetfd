@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="../../static/css/dashboard.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+" rel ="stylesheet">
+    
+    <!-- MTERIAL ICONS CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <!-- GOOGLE FONTS (POPPINS) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        .material-symbols-sharp {
+          font-variation-settings:
+          'FILL' 0,
+          'wght' 400,
+          'GRAD' 0,
+          'opsz' 48
+        }
+        </style>
+
+</head>
+<body>
+<nav>
+    <div class="container">
+        <img style="max-width:300px" src="./../static/images/logo.jpg" class="logo">
+        <div class="search-bar">
+            <span class="material-symbols-sharp">search</span>
+            <input type="search" placeholder="Search">
+        </div>
+        <div class="profile-area">
+            <div class="theme-btn">
+                <span class="material-icons-sharp active">light_mode</span>
+                <span class="material-icons-sharp">dark_mode</span>
+            </div>
+            <div class="profile">
+                <div class="profile-photo">
+                    <img style="max-width:100px" src="./../static/images/profile3.jpg" alt="">
+                </div>
+                <h5>Ali avatar</h5>
+                <span class="material-symbols-sharp">expand_more</span>
+            </div>
+            <button id="menu-btn">
+                <span class="material-symbols-sharp">menu</span>
+            </button>
+        </div>
+    </div>
+</nav>
+<!-- End Of Navbar-->
+<main>
+<aside>
+    <button id="close-btn">
+         <span class="material-symbols-sharp">close</span>
+    </button>
+       <div class="sidebar">
+        <a href="#" class="active">
+            <span class="material-icons-sharp">dashboard</span>
+            <h4>Dashboard</h4>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">currency_exchange</span>
+            <h4>Exchange</h4>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">account_balance_wallet</span>
+            <h4>Wallet</h4>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">Nothing</span>
+            <h4>Transactions</h4>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">pie_chart</span>
+            <h4>Analytics</h4>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">message</span>
+            <h4>Messages</h4>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">help_center</span>
+            <h4>Help center</h4>
+        </a>
+        <a href="#">
+            <span class="material-icons-sharp">settings</span>
+            <h4>Settings</h4>
+        </a>
+
+    </div>
+        <!--END OF SIDEBAR-->
+        <div class="updates">
+            <span class="material-icons-sharp"> update</span>
+            <h4>Updates Avaliable</h4>
+            <p>Security Updates</p>
+            <p>General Updates</p>
+            <a href="#">Update Now</a>
+        </div>
+</aside>
+        <!--------------------------END OF ASIDE----------->
+      
+      
+
+
+
+    </main>
+<!--======================================END OF ASIDE ========================-->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js" integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="../../static/js/dashboard.js"></script>
+<script src="../../static/js/script.js"></script>
+
+</body>
+</html>

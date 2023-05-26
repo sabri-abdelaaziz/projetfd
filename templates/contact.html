@@ -1,0 +1,695 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+     
+        <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+       
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contact</title>
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+        
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        
+        <style>
+  
+    
+    
+   
+    
+    #hero{
+      background-image: url("") ;
+    }
+    
+    /*home*/
+    #hero{
+      
+      background-image: url("../static/images/background/b4.jpg") ;
+      height: 90vh;
+      width: 100%;
+      background-size: cover;
+      background-position: top 25% right 0;
+      padding:  0 80px ;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+    
+    }
+    
+    #hero h4{
+      padding-bottom: 15px;
+    }
+    
+    #hero h4{
+      color: #088178 ;
+    }
+    #hero button{
+    
+      background-image: url("../static/images/icons/button.png");
+      background-color: transparent;
+      color: 088178;
+      border: 0;
+      padding: 14px 80px 14px 65px ;
+      background-repeat: no-repeat;
+      cursor: pointer;
+      font-weight: 700px;
+      font-size :15px;
+    
+    }
+    
+    /* Shop Page */
+    
+    #page-header{
+      
+      background-image: url("../static/images/background/b18.jpg") ;
+      width:  100%;
+      height : 70vh;
+      background-size: cover ;
+      display: flex;
+      background-position: center;
+      justify-content: center;
+      text-align: center;
+      text-decoration: column;
+      padding : 14px;
+    }
+    
+    #page-header h2 ,
+    #page-header p{
+    
+      color: #fff;
+    
+    }
+    
+    #product1{
+    
+      text-align: center ;
+    
+    }
+    
+    #product1 .pro{
+    
+      width : 23%;
+      min-width: 250px;
+      padding : 10px 12px ;
+      border : 1px solid #cce7d0;  
+      border-radius: 25px;
+      cursor:  pointer;
+      box-shadow: 20px 20px 30px  rgba(0,0,0,0.02);
+      margin : 15px 0;
+      transition: 0.2s ease;
+      position: relative;
+    }
+    
+    
+    #product1 .pro:hover{
+     
+      box-shadow: 20px 20px 30px rgba(0,0,0,0.06);
+      
+    }
+    #product1 .pro  .des{
+    
+      text-align: start;
+      padding: 10px 0;
+    }
+    
+    #product1 .pro des span{
+    
+       color : #606063;
+       font-size:  12px;
+    
+    }
+    
+    #product1 .pro img{
+    
+      width : 100%;
+      border-radius:20px;
+    
+    }
+    
+    #product1 .pro .des h5{
+    
+      padding-top: 7px;
+      color : #1a1a1a;
+      font-size: 14px;
+    
+    }
+    
+    
+    #product1 .pro .des i{
+    
+      font-size: 12px;
+      color: rgba(243 , 181 , 25);
+    
+    }
+    
+    #product1 .pro .des h4{
+       
+      padding-top: 7px;
+      font-size: 15px;
+      font-weight: 700;
+      color: #088178;
+    
+    }
+    
+    #product1{
+    
+       text-align: center;  
+    
+    }
+    
+    #product1 .pro-container{
+    
+      display: flex;
+      justify-content: space-between;
+      padding-top: 20px;
+      flex-wrap: wrap;
+    
+    
+    }
+    
+    #product1 .pro .cart{
+      
+      width: 40px;
+      height: 40px;
+      line-height: 40px;
+      height: 40px;
+      line-height: 40px;
+      border-radius: 50px;
+      background-color: #e8f6ea;
+      font-weight: 500;
+      color: 500;
+      border: 1px solid #cce7d0;
+      position: absolute;
+      bottom : 20px;
+      right : 10px;
+    
+    }
+    
+    #pagination{
+    
+      text-align: center;
+    
+    }
+    
+    
+    #pagination a{
+    
+      text-decoration: none;
+      background-color: #088178;
+      padding: 15px 20px ;
+      border-radius : 4px;
+      font-weight: 600;
+    
+    }
+    
+    #pagination a i {
+    
+      font-size: 16px;
+      font-weight: 600;
+    
+    }
+    
+    #cart table td:nth-child(1){
+        width: 100px;
+        text-align: center;
+    }
+    #cart table td:nth-child(2){
+        width: 150px;
+        text-align: center;
+    }
+    #cart table td:nth-child(3){
+        width: 250px;
+        text-align: center;
+    }
+    #cart table td:nth-child(4),
+    #cart table td:nth-child(5),
+    #cart table td:nth-child(6){
+        width: 150px;
+        text-align: center;
+    }
+    
+    
+    #cart table td:nth-child(5) input{
+    
+        width:70px;
+        padding: 10px 5px 10px 15px;
+    
+    }
+    
+    
+    #cart table thead{
+    
+        border: 1px solid #e2e9e1;
+        border-left: none ;
+        border-right : none;
+    
+    }
+    
+    #cart table thead td{
+    
+        font-weight : 700 ;
+        text-transform: uppercase;
+        font-size: 13px;
+        padding: 18px 0;
+    
+    }
+    
+    #cart table tbody tr td{
+        padding-top: 15px ;
+    }
+    
+    
+    #cart table tbody td{
+    
+        font-size: 13px;
+    
+    }
+    
+    
+    /* cart page */
+    #cart table{
+    
+       width: 100%;
+       border-collapse: collapse; 
+       table-layout: fixed;
+       white-space: nowrap;
+    }
+    
+    
+    #cart table img{
+    
+        max-width: 70px;
+        max-height:70px;
+    
+    }
+    
+    #cart table img{
+    
+        width:70px;
+    
+    }
+    
+    #cart-add{
+    
+       display: flex;
+       flex-wrap: wrap;
+       justify-content: space-between;
+    
+    }
+    #coupon{
+    
+        width: 50%;
+        margin-bottom: 30px;
+    
+    }
+    
+    
+    #coupon h3 , 
+    #subtotal h3{
+        padding-bottom: 15px;
+    }
+    
+    #coupon input{
+    
+        padding: 10px 20px;
+        outline: none;
+        width: 60%;
+        margin-right: 10px;
+        border : 1px solid #e2e9e1;
+    
+    
+    }
+    
+    #coupon button{
+    
+        background-color: #088178 ;
+        color:#fff;
+        width: 100px;
+        height: 38px;
+        border: none;
+        border-radius: 5px;
+        padding: 12px 20px;
+        
+        
+    }
+    
+    
+    .Normal2{
+    
+        background-color: #088178 ;
+        color:#fff;
+      
+        border: none;
+        border-radius: 5px;
+        padding: 12px 20px;
+    }
+    
+    
+    #subtotal table{
+        border-collapse : collapse;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    
+    #subtotal table td{
+    
+        width:50px;
+        border: 1px solid #e2e9e1;
+        padding: 10px;
+        font-size:13px;
+    
+    
+    }
+    
+    #subtotal{
+    
+        width: 50%;
+        margin-bottom: 30px;
+        border: 1px solid #e2e9e1 ;
+        padding :30px;
+    
+    }
+    
+    button,
+    i{
+    
+        cursor: pointer;
+    
+    }
+    
+    
+    /*search box*/
+    
+    
+    .active{
+        left: 100%;
+    }
+    .search-box{
+        position: absolute;
+        top: 110%;
+        left: 100%;
+        width: 50%;
+        right: 2rem;
+    
+    
+    }
+    .search-box input{
+        padding: 1.5rem 2rem;
+        width: 100%;
+        border-radius: 15px;
+        border: 0;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    }
+    
+    .optionCity{
+    
+    
+        width: 120px;
+        height: 40px;
+        border-radius: 5px ;
+    
+    
+    }
+    
+    
+    /*Form*/
+    
+    
+    .hidden{
+    
+        display: none;
+    
+    
+    }
+
+
+/* contact page */ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+#contact-details .details li{
+
+   list-style : none;
+   display: flex;
+   padding : 10px 0;
+
+
+
+}
+
+#contact-details  details li i{
+    font-size: 14px;
+    padding-right: 22px;
+}
+
+#contact-details .details li p{
+
+    margin: 0;
+    font-size: 14px;
+
+}
+
+
+#contact-details .map{
+
+    width: 55%;
+    height : 400px
+}
+
+#contact-details .map iframe{
+
+    width: 100%;
+    height : 100%
+}
+
+
+
+
+
+#form-details .people div{
+
+    display: flex;
+   align-items: center;
+
+
+}
+
+#form-details .people div img{
+
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
+    margin-right: 15px;
+
+}
+
+
+
+#form-details .people div p{
+
+    margin : 0;
+    font-size: 13px;
+    line-height: 25px;
+    
+}
+
+#form-details .people div p span{
+
+    display: block;
+    font-size: 16px;
+    font-weight: 600;
+    color : #000
+
+}
+
+    </style>
+    
+    </head>
+    <body>
+     
+        {% if session["err"]%}
+        <div class="container p-5">
+           <div class="alert my-5 alert-warning alert-dismissible fade show" role="alert1">
+         <strong>Opps!</strong> {{session["err"]}}
+         <button type="button" class="btn-close" data-bs-dismiss="alert1" aria-label="Close"></button>
+       </div>
+      
+        </div>
+        
+        {%endif%}
+
+     {% include "header.html"%}
+
+    
+      <section id="page-header"  class="my-5 about-header">
+    
+        <h2 class="text-dark fs-1">Let's talk</h2>
+        <p >LEAVE A MESSAGE We love to hear from you ! </p>
+        
+
+        
+
+
+
+      </section>
+
+
+
+
+
+<!--description-->
+
+      <section id="contact-details" class="section-p1">
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12 col-md-6">
+<div class="details text-center">
+
+            <span class="text-center"> GET IN TOUCH</span>
+            <h2>Visit one of our agency location or contact us today</h2>
+            <h3>Head office</h3>
+            <div class="text-center">
+                <li class="text-info text-center d-flex align-items-center justify-content-center">
+                    <i class="fal fa-map"></i>
+                    <p> Shop Rue</p>
+                </li>
+                
+                <li  class="text-info text-center d-flex align-items-center justify-content-center">
+                    <i class="fal fa-envelope"></i>
+                    <p>shopStore@gmail.com</p>
+                </li>
+                
+                <li class="text-info text-center d-flex align-items-center justify-content-center">
+                    <i class="fal fa-phone-alt"></i>
+                    <p>+212-756755243</p>
+                </li>
+                
+                <li class="text-info text-center d-flex align-items-center justify-content-center">
+                    <i class="fal fa-clock"></i>
+                    <p> Open At 8:00 CLose At 20:00 </p>
+                </li>
+            </div>
+        </div>
+                </div>
+                <div class="col-12 col-md-6 " style="border-radius:10px !important ;">
+                    <div class="map container bg-dark  w-100 p-0">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27211.838587846752!2d-9.780094737749245!3d31.510978939467755!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdad9a4e9f588ccf%3A0x57421a176d5d7d30!2sEssaouira!5e0!3m2!1sfr!2sma!4v1676112305036!5m2!1sfr!2sma" width="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>  
+                </div>
+            </div>
+        </div>
+
+
+      </section>
+
+<!--message session-->    
+      <section id="form-details">
+      <div class="container my-5">
+        <div class="row">
+            <div class="col-12 d-flex align-items-center justify-content-center ">
+                <form class="form bg-info w-75 p-2" action="/contact" method="post">
+                    <span class="form-label ">LEAVE A MESSAGE</span>
+                    <h2 class="form-label">We love to hear from you</h2>
+                    <input class="form-control my-1" type="text" name="name" value="{{session['name']}}" placeholder="Your name">
+                    <input class="form-control my-1" type="email" name="email" value="{{session['email']}}" placeholder="Emial">
+                    
+                    <textarea class="form-control my-1" name="message" id="" cols="30" rows="10" placeholder="Your message"></textarea>
+                    <button type="submit"  class="form-control bg-primary text-light">Send</button> 
+                </form>
+
+            </div>
+
+            <!---our team-->
+            <div class="col-12 ">
+         <h1 class="text-center fs-1 my-1 fw-bold ">OurTeam</h1>
+
+                <div class=" d-flex align-items-center p-2 justify-content-center row" class="cotainer d-flex align-items-center justify-content-center">
+                    <div class="col-12 col-md-2 text-center m-5 p-2">
+                        <img  style="box-shadow: 12pxx 3px 2px 1px black; width:80px;height:80px ;border-radius: 50%;"  src="../static/images/people/osama.jpg" alt="">
+                        <p class="text-muted p-2"><span class="text-dark">OsamaAkeskous</span> <br> Data Scientist<br>Phone:+21260020021<br>Email:oussama.akeskous@gmail.com</p>
+                    </div>
+                    <div class="col-12 col-md-2 text-center m-5 p-2">
+                        <img  style="box-shadow: 12pxx 3px 2px 1px black; width:80px;height:80px ;border-radius: 50%;" src="../static/images/people/nki.jpg" alt="">
+                        <p class="text-muted p-2"><span class="text-dark">Sabri Abdelaaziz</span><br>Data Scientist<br>Phone:+212671344804<br>Email:azizsabri072@gmail.com</p>
+                    </div>
+                 
+        
+                    
+        
+                </div>
+                        
+                    </div>
+        </div>
+
+
+     
+
+
+      </section>
+      </div>
+
+
+
+
+
+
+
+
+    
+       
+       
+    
+    
+    
+<!-- footer-->
+
+<div class="container-fluid my-5">
+    {% include "footer.html" %}  
+ </div>
+
+<!---search model--->
+
+  {% include "search.html" %}  
+
+
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+       
+        
+    </body>
+    
+    
+    </html>
+
+</body>
+</html>

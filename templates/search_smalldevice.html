@@ -1,0 +1,77 @@
+
+
+
+
+<!--- in main of small devices. -->
+
+
+
+
+
+
+
+
+<div class="container-fluid mt-5 row text-center d-block d-md-none"> 
+    <div class=" col-12 p-0  text-center mt-5 ">
+<img class="img-fluid" src="../static/images/background/a4.png" width="100%" alt="">
+
+    </div>      
+          
+<div class=" col-12 text-center ">
+             
+    <form style="border-radius:40px;text-shadow: 1px 1px 1px gray;box-shadow: 10px 10px 5px gray;" action="/predict" method="post" class="form  text-center shadow bg-light p-4  bordered bounded  form-secondary"  enctype="multipart/form-data">
+
+        <h2 class="text-center  fs-4 fw-bold ">Search For Your  Products Here  </h2>
+     
+
+      <div class="form-group">
+        <label for="image2" id="image-label1">
+                <img class="my-3" style="text-shadow: 1px 1px 1px gray;" width="100px" height="100px" id="imageP" src="/static/images/icons/select3.png">
+        </label>
+        <input  type="file" id="image2"  name="image" class="form-control" onchange="previewImage(event)">
+    
+        <script>
+            function previewImage(event) {
+              var input = event.target;
+              var preview = document.getElementById("imageP");
+              var reader = new FileReader();
+            
+              reader.onload = function() {
+                preview.src = reader.result;
+              }
+            
+              reader.readAsDataURL(input.files[0]);
+            }
+            </script>
+        
+     
+    </div>
+
+
+<div class="text-center d-flex align-items-center justify-content-center">
+    <button class="btn btn-primary d-flex  fs-4 " id="sba" type="submit"> Search<i class="bi bi-search"></i></button>
+      
+
+
+</div>
+        
+    </form>
+
+</div>
+
+</div>
+
+
+<!--- end of main in small devices--->
+
+
+
+
+
+
+
+<script>
+
+
+
+</script>

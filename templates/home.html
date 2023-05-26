@@ -1,0 +1,451 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+    #image, #image2 {
+  display: none;
+}
+#image-label,#image-label1 {
+  display: inline-block;
+
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.p-5{
+    position: relative;
+    top: 300;
+}
+
+.messages{
+
+    position: relative;
+    bottom: 300;
+
+}
+</style>
+
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body style=" background-color: #EDEDED !important; " >
+ 
+
+
+
+
+
+
+
+
+
+
+    {% if session["err"]%}
+  <div style="position: absolute;width:90%;top:10" class="container p-5">
+     <div class="alert my-5 alert-warning alert-dismissible fade show" role="alert1">
+   <strong></strong> {{session["err"]}}
+   <button type="button" class="btn-close" data-bs-dismiss="alert1" aria-label="Close"></button>
+ </div>
+
+  </div>
+  
+  {%endif%}
+ 
+  
+  
+        {% include "header.html" %}  
+   
+ 
+
+<!-- main.  in the big devices-->
+
+
+<div class="container-fluid p-0" style="height:80vh !important;" style="height: 770px !important;">
+
+
+
+
+
+
+{% include "search_smalldevice.html"%}
+
+
+
+<div class="row d-none d-md-block"  style=" margin-left:600px;height: 970px !important; max-height: 200 !important;  background-image: url('{{ url_for('static', filename='images/background/a4.png') }}');
+background-repeat: no-repeat;
+background-size: cover:  !important;;
+background-position: center !important;" >
+     <div class="container text-center  " style="position:absolute;top:20%;right:20%;width: 100%;">
+         
+    <div class="container text-center">
+        <div class="row text-center d-flex align-items-center justify-content-center">
+
+
+
+
+            <div class="col-md-4 text-center ">
+             
+                <form style="border-radius:40px;text-shadow: 1px 1px 1px gray;box-shadow: 10px 10px 5px gray;" action="/predict" method="post" class="form  text-center shadow bg-light p-4  bordered bounded  form-secondary"  enctype="multipart/form-data">
+            
+                    <h2 class="text-center  fs-4 fw-bold ">Search For Your  Products Here  </h2>
+                 
+    
+                  <div class="form-group">
+                    <label for="image" id="image-label">
+                            <img class="my-3" style="text-shadow: 1px 1px 1px gray;" width="200px" height="200px" id="imagePreview2" src="/static/images/icons/select3.png">
+                    </label>
+                    <input  type="file" id="image"  name="image" class="form-control" onchange="previewImage(event)">
+                
+                    <script>
+                        function previewImage(event) {
+                          var input = event.target;
+                          var preview = document.getElementById("imagePreview2");
+                          var reader = new FileReader();
+                        
+                          reader.onload = function() {
+                            preview.src = reader.result;
+                          }
+                        
+                          reader.readAsDataURL(input.files[0]);
+                        }
+                        </script>
+                   
+                 
+                </div>
+    
+            
+       <div class="text-center d-flex align-items-center justify-content-center">
+        
+
+        
+         <button class="btn btn-primary d-flex  fs-4 " id="sb1" type="submit"> Search<i class="bi bi-search"></i></button>
+      
+
+
+
+
+         
+       </div>
+                    
+                </form>
+
+            </div>
+
+
+
+
+
+            
+          
+        </div>
+       
+      </div>
+    
+    </div>
+ 
+</div>
+
+</div>
+
+<!--end main-->
+
+
+
+<!-- feautures products -->
+
+<div class="container-fluid p-5  mt-5 ">
+ <h1 class="fs-1 fw-bold text-center text-decoration-underline text-muted my-5">Features Products</h1>
+
+    <div class="row ">
+       
+         <!-- card 1-->
+         {%for pro in feauture_product%}
+         <div class=" col-12  my-2  col-md-3" >
+            <div  style="   background-color: #EDDBC7 !important;" class="card fs-5 cart" >
+                <h1 style="  position: absolute;
+                transform: rotate(20px);
+                top: 10px;
+                padding: 10px;
+                transform: rotate(-10deg);
+                font-size:15px !important;
+                background-color: #F55050 !important;
+                border-radius:20px;"  class="nov">New</h1>
+                <div class="card-body">
+                    <div class="card-text">
+                        <img   class="img-fluid mr-0"  style="height:200px !important;width: 100% !important;"  src="static/images/clothes/all/{{pro[4]}}" alt="">
+                
+  
+                    </div>
+
+                </div>
+                <h1 class="text-center fs-4 fw-bold text-muted">{{pro[1]}}</h1>
+                <div class="card-footer text-center d-flex justify-content-around align-items-center">
+                    <h1 class="p-0 m-0 text-light">{{pro[3]}} DH</h1>
+                    <a href="/product?id={{pro[0]}}" class="text-center p-0 m-0 fs-1 text-danger btn"><i class="bi text-primary bi-cart-check-fill"></i></a>
+
+                </div>
+            </div>
+
+        </div>
+        {% endfor%}
+          
+        </div>
+       
+
+
+
+
+        
+
+    </div>
+</div>
+
+<div class="text-center p-5">
+    <a href="/shop" class="btn btn-success">See More Products</a>
+</div>
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+    
+       
+         
+<!-- some info-->
+<div class="container-fluid">
+
+
+    <div class="row">
+        <div class="col-7">
+                   <img style="width:700px ;height:400px"  src="{{ url_for('static', filename='images/icons/a6.jpg') }}" class="img-fluid" alt="">
+  
+        </div>
+        <div class="col-5 text-center align-items-center d-flex justify-content-center flex-column ">
+            <p class="text-center">Here you'll find All Your search about fashion Less Prices And good services Also Free delivery </p>
+            <a href="/about" class="btn btn-success">See More</a>
+        </div>
+   </div>
+
+
+
+</div>
+
+<!-- tools-->
+
+<div class="container my-5 text-center">
+    <h1 class="text-center text-decoration-underline text-muted">Our Services </h1>
+<div class="row text-center my-5 d-flex align-items-center justify-content-center" >
+
+    <div class="col-5  m-2 p-5 text-center"  style="background-color: white !important;box-shadow: 3px 2px 1px 1px gray;border-radius: 20px;">
+        <img class="img-fluid" style="height:200px !important;width: 400px ;"  src="{{ url_for('static', filename='images/icons/f1.png') }}" alt="">
+        <h1 class="text-center">Easy To Shop</h1>
+    </div>
+    <div class="col-5  m-2  p-5"   style="background-color: white !important;box-shadow: 3px 2px 1px 1px gray;border-radius: 20px;">
+        <img class="img-fluid"   style="height:200px !important;width: 400px" src="{{ url_for('static', filename='images/icons/f2.png') }}" alt="">
+        <h1 class="text-center">Fast Delivery</h1>
+    </div>
+    <div class="col-5  m-2 p-5"   style="background-color: white !important;box-shadow: 3px 2px 1px 1px gray;border-radius: 20px;">
+        <img class="img-fluid"   style="height:200px !important;width: 400px" src="{{ url_for('static', filename='images/icons/f3.png') }}" alt="">
+        <h1 class="text-center">Less Money</h1>
+    </div>
+    <div class="col-5 m-2 p-5 text-center"   style="background-color: white !important;box-shadow: 3px 2px 1px 1px gray;border-radius: 20px;">
+        <img class="img-fluid"  style="height:200px !important;width: 400px" src="{{ url_for('static', filename='images/icons/f5.png') }}" alt="">
+        <h1 class="text-center ">Confident</h1>
+    </div>
+
+</div>
+
+</div>
+
+
+
+
+<!-- Avis de Clients-->
+
+<div class="text-center text-muted fs-1 fw-bold ">
+    Our Clients
+</div>
+
+
+            <div class="container someMessages" id="someMessages">
+                {% include "testPsts.html"   %} 
+            </div>
+
+
+
+<!-- 
+
+
+<div class="container-fluid p-5  my-2 messages">
+    <h1 class="fs-2 fw-bold text-center text-decoration-underline text-muted my-5">Avis De Clients</h1>
+   
+       <div class="row my-5" >
+          
+            
+           
+            <!-card 1-->
+          <!-- {% for message in messages%}
+        {% if message[6]=="valider"%}
+
+            <div class=" col-12  my-2  col-md-3" style="height: 200px !important;">
+                <div class="card" style="background-color: #FEFCF3;">
+                 
+                    <div class="card-body">
+                       
+                            <img   class="img-fluid mr-0"  style="height:200px !important;width: 100% !important;border-radius:10px;box-shadow: 1px 2px 4px 1px white  ;"  src="{{ url_for('static', filename='images/uploads/user.webp') }}" alt="">
+                     <div class="card-text fs-5 text-center fw-bold">
+                         {{message[1]}}
+                        </div>
+    
+                    </div>
+                    <div class="card-footer text-center d-flex justify-content-around align-items-center">
+                        <h1 class="p-0 fs-4 text-muted fw-bold m-0">{{message[3]}}</h1>
+                        <div class="text-center">
+                            <a href="/message/adore?id={{message[0]}}" class="btn  ">
+                                
+                            <button type="button" class="btn   position-relative">
+       <i class="bi btn btn-outline-danger  bi-heart-fill"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-primary">
+          <strong>{{message[5]}}</strong>
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+                           </a>
+                         
+                         
+                          </div>
+                    
+                    </div>
+                     <div class="text-center">
+                               <h6 class="text-center text-muted">{{message[2]}}</h6>
+                           </div>
+                </div>
+    
+            </div>
+
+             {%endif%}
+            {%endfor%}
+   
+           </div>
+          
+           <div class="container my-4">
+           <h1>
+                 
+           </h1>
+           </div>
+           
+   
+       </div>
+   </div> -->
+
+
+
+  
+   
+<!-- Information about the number of visitors-->
+<!-- <div class="container my-5 p-3">
+    <div class="row">
+        <div class="col-6 text-center d-flex justify-content-center align-items-center flex-column ">
+            <p class="text-center">More than 100K visitors every months visite our Store ,And The Majority thanks Us About Our Services</p>
+            <a href="" class="btn  w-25  btn-success">See More</a>
+        </div>
+        <div class="col-6 my-5 ">
+            <div id="plot" style=" background-color: #E5E0FF !important; border-radius: 30px !important; " ></div>
+        </div>
+      
+    </div>
+</div> -->
+
+
+  
+ 
+
+
+
+<div class="container-fluid my-5" id="footer">
+    {% include "footer.html" %}  
+ </div>
+
+
+
+
+
+ 
+
+
+
+
+
+ <script>
+  
+
+
+
+sb1.disabled = true
+function previewImage(event) {
+
+var input = event.target;
+var preview = document.getElementById("imagePreview2");
+var reader = new FileReader();
+
+reader.onload = function() {
+preview.src = reader.result;
+sb1.disabled = false
+}
+
+reader.readAsDataURL(input.files[0]);
+}
+
+   </script>
+   
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    
+       
+        
+    
+    
+    </body>
+    </html>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

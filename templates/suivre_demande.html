@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+       <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    
+       <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+       <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+      
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Reset code </title>
+    
+</head>
+
+
+<body style="display: flex; align-items: center; justify-content: center; width: 100vw; height: 100vh; background-color: rgb(250, 250, 242);">
+
+  
+    {% include "header.html" %}
+
+     
+
+  <div class="container w-50">
+
+<div class="text-center">
+    <h1>My demandes</h1>
+</div>
+
+
+    <div style=" overflow: auto !important ; !important; height:400px; overflow-y: scroll;" class="table-container col-sm-8 table-responsive w-100  m-sm-2 col-lg-10">
+      
+        <table  bgcolor="white" class="table table-bordered " >
+            <thead class="bg-info">
+                <tr>
+                  
+                   
+                    <th class="text-center text-light  fs-5 ">quantity</th>
+                    <th class="text-center text-light  fs-5 ">City</th>
+
+                    <th class="text-center text-light  fs-5 ">address</th>
+
+                    <th class="text-center text-light  fs-5 ">tel number </th>
+                    <th class="text-center text-light  fs-5 ">Status</th>
+
+                </tr>
+            </thead>
+            <tbody>
+          
+                {% for result in data%}
+                <tr>
+               
+                    <td class="text-dark text-center">{{ result[0] }}</td>
+                    <td class="text-dark text-center">{{ result[1] }}</td>
+                    <td class="text-dark text-center">{{ result[2] }}</td>
+                    <td class="text-dark text-center">{{ result[3] }}</td>
+                    {%if result[4]=="novalider"%}
+                    <td class="text-danger text-center">En proccessing ...</td>
+                    {%else%}
+                    <td class="text-success text-center">{{ result[4] }}</td>
+
+                    {%endif%}
+
+                    
+                   
+
+              
+             
+                    
+                 </tr>
+                {% endfor %}
+           
+            </tbody>
+        </table>
+
+
+
+
+        
+            </div>
+   
+   
+   
+   
+         </div>
+
+
+
+
+
+      
+
+
+
+<!---search model--->
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>
+
+
+
+

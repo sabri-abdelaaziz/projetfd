@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+   <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+   <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+  
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion</title>
+</head>
+<body >
+
+    {% if session["err"]%}
+    <div class="container p-5">
+       <div class="alert my-5 alert-warning alert-dismissible fade show" role="alert1">
+         {{session["err"]}}
+     <button type="button" class="btn-close" data-bs-dismiss="alert1" aria-label="Close"></button>
+   </div>
+  
+    </div>
+    
+    {%endif%}
+    <div class="container-fluid">
+        {% include "header.html" %}  
+     </div>
+  
+
+    <div class="container my-5">
+        <div class="row my-5">
+            <div class="col-6 text-center d-flex justify-content-center align-items-center flex-column ">
+                <p class="text-center">All The Informations About the visitors </p>
+                <a href="" class="btn  w-25  btn-success">See More</a>
+            </div>
+            <div class="col-6">
+                <div id="plot" style=" background-color: #E5E0FF !important; border-radius: 30px !important; " ></div>
+            </div>
+          
+        </div>
+    </div>
+
+
+
+
+
+     
+
+
+      
+     
+        <div class="container-fluid  h-100 p-5">
+      
+   
+   
+        
+        
+        <div class="row d-flex justify-content-center p-5">
+            <div   style="width: 600px; height:400px;"  class="col-12 m-2 col-md-6 p-3 ">
+                <div class="card">
+                    <div class="card-body text-center">
+                <img class="img-fluid" src="{{ url_for('static', filename='images/background/gestion_client.jpeg') }}" alt="">
+            </div>
+            <div class="card-footer">
+                <a href="/client" class="btn  w-100 h-100 d-flex align-items-center justify-content-center  btn-outline-success  mb-3 w-100 "><h1>Gestion des Clients </h1></a>
+                </div>
+                </div>
+                </div>
+
+
+
+
+                <div  style="width: 600px; height:400px;" class="col-12 col-md-6  p-3 ">
+                    <div class="card">
+                        <div class="card-body">
+                       
+                         <img style="width: 100%; height:200px;" class="img-fluid"  src="{{ url_for('static', filename='images/background/gestion_demandes.jpeg') }}" alt="">
+                         </div>
+                        <div class="card-footer">
+                <a href="/admin/demmands"  class="btn  w-100 h-100 d-flex align-items-center justify-content-center mb-3 btn-outline-success w-100 "><h1>Gestion des demandes</h1></a>
+                  
+             </div>
+            </div>
+        </div>
+
+
+
+             <div  style="width: 600px; height:400px;" class="col-12 col-md-6  p-3">
+                <div class="card">
+                    <div class="card-body">
+                   
+                <img  style="width: 100%; height:200px;"  class="img-fluid" src="{{ url_for('static', filename='images/background/geston_produit.png') }}" alt="">
+                   </div>
+                    <div class="card-footer">
+                <a href="/admin/products" class="btn  w-100 h-100 d-flex align-items-center justify-content-center mb-3 btn-outline-success w-100 "><h1>Gestion des Produits </h1></a>
+                </div>
+            </div>
+        </div>
+
+
+
+                <div  style="width: 600px; height:400px;" class="col-12 col-md-6 p-3 ">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                <img  style="width: 100%; height:200px;"  class="img-fluid" src="{{ url_for('static', filename='images/background/gestion_messages.png') }}" alt="">
+            </div>
+            <div class="card-footer">
+
+                <a href="/admin/messages"  class="btn  w-100 h-100 d-flex align-items-center justify-content-center mb-3 btn-outline-success w-100 "><h1>Gestion des Messages</h1></a>
+                  
+             </div>
+            </div>
+        </div>
+
+
+
+
+
+             <div  style="width: 600px; height:400px;" class="col-12 col-md-6 p-3 ">
+                <div class="card">
+                    <div class="card-body">
+                <img style="width: 100%; height:200px;"  class="img-fluid" src="{{ url_for('static', filename='images/background/statistique.jpeg') }}" alt="">
+            </div>
+            <div class="card-footer">
+
+                <a href="/admin/statistique" class="btn  w-100 h-100 d-flex align-items-center justify-content-center mb-3 btn-outline-success w-100 "><h1>Statistiques  </h1></a>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+                <div  style="width: 600px; height:400px;" class="col-12 m-2 col-md-6 p-3 ">
+                    <div class="card">
+                        <div class="card-body">
+                            <img  style="width: 100%; height:200px;"  class="img-fluid" src="{{ url_for('static', filename='images/blog/b2.jpg') }}" alt="">
+  
+                        </div>
+                      <div class="card-footer">
+                            <a href=""  class="btn  w-100 h-100 d-flex align-items-center justify-content-center mb-3 btn-outline-success w-100 "><h1>New Collections </h1></a>
+                      </div>
+                    
+                    </div>
+            </div>
+
+    
+             </div>
+          
+        </div>
+        </div>
+        
+
+
+    <script>
+        Plotly.newPlot("plot", {{ plot | tojson | safe }});
+        </script>  
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+</html>

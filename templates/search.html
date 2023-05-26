@@ -1,0 +1,88 @@
+
+
+
+
+
+
+<button type="button" style="position: fixed;bottom:0;right: 0;display: flex;align-items: center;justify-content: space-around;" class="btn  btn-primary " data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+ Search<i class="bi bi-search"></i>
+ </button>
+
+
+<!-- Modal -->
+<div class="modal fade p-5 my-5" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="staticBackdropLabel1">Search Now!   </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+
+
+
+        <div style="width: 100%; z-index: 9999;" >
+
+        
+          <div class="text-center ">
+                   
+            <form style="border-radius:40px;text-shadow: 1px 1px 1px gray;box-shadow: 10px 10px 5px gray;" action="/predict" method="post" class="form  text-center shadow bg-light p-4  bordered bounded  form-secondary"  enctype="multipart/form-data">
+        
+                <h2 class="text-center  fs-4 fw-bold ">Search For Your  Products Here  </h2>
+             
+      
+              <div class="form-group">
+                
+                <label for="image" id="image-label">
+                        <img class="my-3 img-fluid" style="text-shadow: 1px 1px 1px gray;"  id="imagePreview" src="../static/images/icons/select3.png">
+                </label>
+                <input  type="file" id="image" style="display: none;" name="image" class="form-control" onchange="previewImage(event)">
+            
+                <script>
+                    function previewImage(event) {
+                      var input = event.target;
+                      var preview = document.getElementById("imagePreview");
+                      var reader = new FileReader();
+                    
+                      reader.onload = function() {
+                        preview.src = reader.result;
+                      }
+                    
+                      reader.readAsDataURL(input.files[0]);
+                    }
+                    </script>
+                
+             
+            </div>
+      
+        
+      <div class="text-center d-flex align-items-center justify-content-center my-2">
+      <button class="btn btn-primary d-flex  fs-4" type="submit" id="sb1"> Search<i class="bi bi-search"></i></button>
+      
+      </div>
+                
+            </form>
+      
+        </div>
+        </div>
+
+
+
+
+<script>
+    sb1.disabled = true
+     function previewImage(event) {
+ 
+       var input = event.target;
+       var preview = document.getElementById("imagePreview");
+       var reader = new FileReader();
+     
+       reader.onload = function() {
+         preview.src = reader.result;
+         sb1.disabled = false
+       }
+     
+       reader.readAsDataURL(input.files[0]);
+     }
+ </script>

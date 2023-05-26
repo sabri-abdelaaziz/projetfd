@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+ 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ 
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+   
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Gestion de Products</title>
+ </head>
+<body>
+
+
+ 
+  
+
+
+    <div  class="container my-5 p-4 ">
+        <h1 class="text-center fs-1 fw-bold"> Products </h1>
+        <div style=" overflow: auto !important ;  width: 800px !important; height:400px; overflow-y: scroll;" class="table-container col-sm-8 table-responsive w-100  m-sm-2 col-lg-10">
+      
+        <table  bgcolor="white" class="table table-bordered " >
+            <thead class="bg-info">
+                <tr>
+                  
+                    <th class="text-center text-light  fs-5 ">Titre</th>
+                    <th class="text-center text-light  fs-5 ">description</th>
+
+                    <th class="text-center text-light  fs-5 ">Prix</th>
+
+                    <th class="text-center text-light  fs-5 ">Image </th>
+                    <th class="text-center text-light  fs-5 ">edit</th>
+
+                    <th class="text-center text-light  fs-5 ">delete</th>
+                </tr>
+            </thead>
+            <tbody>
+          
+                {% for result in data%}
+                <tr>
+               
+                  <td class="text-dark text-center">{{ result[1] }}</td>
+                  <td class="text-dark text-center">{{ result[2] }}</td>
+                  <td class="text-dark text-center">{{ result[3] }}</td>
+
+                  <td class=" img-fluid">
+                    
+                    
+                    <img  style="height: 60px !important;width: 80px; border-radius:20% !important;" src="../../static/images/clothes/all/{{result[4]}}" alt=""></td>
+
+                  <td class="text-center"><a href="" class="btn btn-info">edit</a> </td>
+                  <td class="text-center" ><a href="{{ url_for('delete_product', id=result[0]   )}}"  class="btn btn-danger"> delete</a></td>
+                  
+                    
+                 </tr>
+                {% endfor %}
+           
+            </tbody>
+        </table>
+
+
+
+
+        
+            </div>
+
+            
+
+
+         
+
+
+        
+<!-- Button trigger modal -->
+
+<div class="text-center ">
+  <button type="button"  style="width: 300px;  background-color:  rgb(71,7,234);  " id="staticBackdrop2" class="btn btn-primary fs-5" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><span class="material-icons-sharp active">add</span></button>
+
+</div>
+  
+  <!-- Modal -->
+  <div class="modal fade my-5" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="bg-light  modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Ajouter un produit</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+
+          <div class="container ">
+            <h1 class="text-center text-success  p-2 fw-bold fs-1 "> Ajouter produit </h1>
+          <form  action="" method="post" class="form shadow p-4 bg-light mb-5 bordered bounded  form-secondary"   enctype="multipart/form-data">
+            <label for="titre" class="form-label text-dark w-100 mr-5 fs-3 text-right ">Titre : <strong class="text-danger">*</strong></label>
+            <input type="text"  name="titre" class="form-control" id="titre">
+            <label for="prix" class="form-label text-dark w-100 mr-5 fs-3 text-right ">Prix : <strong class="text-danger">*</strong></label>
+            <input type="number"  name="prix" class="form-control" id="prix">
+            <label for="description"   class="form-label text-dark w-100  mr-5 fs-3 text-right ">  Description  <strong class="text-danger">*</strong></label>
+            <input type="description" class="form-control" name="description" id="description">
+            <label for="titre" class="form-label text-dark w-100 mr-5 fs-3 text-right ">Image : <strong class="text-danger">*</strong></label>
+            <input type="file"  name="image" class="form-control" id="titre">
+          
+        
+           
+           <input type="submit"  name="submit" class="form-control my-3 btn p-2 btn-primary" value="Ajouter">
+  
+    </form>
+    </div>
+  
+    </div>
+
+
+
+    
+
+
+
+  </div>
+
+
+  </div>
+  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+</html>
+

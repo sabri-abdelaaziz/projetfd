@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pypal Tool</title>
+</head>
+<body style="display: flex;align-items:center;justify-content:center ;flex-direction:column;width: 100vw;height:100vh;background-color:#1A5F7A;">
+    {%if paiment=="Paypal"%}
+    
+    <form action="/payment" method="post" class="mt-5" target="_blank">
+        <!-- form fields go here --><div type="submit"  id="paypal-button"></div>
+       
+      </form>
+
+    {%else%}
+
+    <div class="card-footer p-0  d-flex align-items-center  text-center" id="d2">
+        
+    <form action="/create-checkout-session"  method="post">
+        <button class="btn">
+          <img id="Visit_Payment" type="submit" class="img-fluid" style="width: 80px; height: 50px;" src="../static/images/icons/visa.jpg" class="my-2" style="border-radius:20px;width:200px;  margin-top:10px" alt=""> 
+        
+         </button>
+      </form>
+   </div>
+    {%endif%}
+
+      
+    
+
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
+
+<script>
+    var CREATE_PAYMENT_URL  = 'http://127.0.0.1:5000/payment';
+    var EXECUTE_PAYMENT_URL = 'http://127.0.0.1:5000/execute';
+
+    paypal.Button.render({
+
+        env: 'sandbox', // Or 'sandbox'
+
+        commit: true, // Show a 'Pay Now' button
+
+        payment: function() {
+            return paypal.request.post(CREATE_PAYMENT_URL).then(function(data) {
+                return data.paymentID;
+            });
+        },
+
+        onAuthorize: function(data) {
+            return paypal.request.post(EXECUTE_PAYMENT_URL, {
+                paymentID: data.paymentID,
+                payerID:   data.payerID
+            }).then(function(res) {
+
+                console.log(res.success)
+                // The payment is complete!
+                // You can now show a confirmation message to the customer
+            });
+        }
+
+    }, '#paypal-button');
+    </script>
+
+
+
+
+</body>
+</html>
