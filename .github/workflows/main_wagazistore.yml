@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'wagazistore'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A486C115E66D4B129F9B4525F043F54B }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_00F1BBFC88804CF5B54D0833FEBEEA42 }}
